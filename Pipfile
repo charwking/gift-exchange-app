@@ -4,6 +4,7 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+pytest = "*"
 
 [packages]
 cherrypy = "*"
@@ -12,4 +13,5 @@ cherrypy = "*"
 python_version = "3.8"
 
 [scripts]
-app = 'python main.py'
+app = 'python src/app.py'
+test = 'python -m pytest -s test/'
