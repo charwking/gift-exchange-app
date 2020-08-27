@@ -22,4 +22,4 @@ jobs:
         pipenv install --dev
 
     - name: Run Tests
-      run: ./test.sh
+      run: bin/test.sh
