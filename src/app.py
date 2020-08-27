@@ -2,6 +2,7 @@ import cherrypy
 import os
 
 cherrypy.config.update({
+   'environment':            os.environ.get('ENVIRONMENT'),
    'server.socket_port': int(os.environ.get('SERVER_PORT', 5050))
 })
 
