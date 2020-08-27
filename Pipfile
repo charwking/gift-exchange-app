@@ -14,4 +14,3 @@ python_version = "3.8"
 
 [scripts]
 app = 'python src/app.py'
-test = 'python -m pytest -s test/'
