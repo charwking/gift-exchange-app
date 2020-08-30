@@ -3,7 +3,10 @@
 ## Development
 
 1. Install [pipenv](https://pipenv.pypa.io/en/latest/)
+1. Create a lock file that allows the black beta release: `pipenv lock --pre`
 1. Install dependencies: `pipenv install`
+1. Install dependencies: `pipenv install --dev`
+1. Install the pre-commit hooks: `pipenv run pre-commit install`
 1. Run tests: `bin/test.sh`
 1. Run app: `bin/local.sh`
 
@@ -20,3 +23,8 @@ Short notes on decisions that were made so they can be discussed or revisted lat
 ### Infrastructure
 
 * There's probably a "more correct" mechanism for managing environment variables, but stuffing them in shell scripts makes them explicit and easy to manage.
+
+### References
+
+https://github.com/psf/black/tree/stable
+https://pre-commit.com/
