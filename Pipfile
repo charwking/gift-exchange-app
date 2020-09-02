@@ -11,6 +11,8 @@ pytest = "6.0.1"
 [packages]
 cherrypy = "*"
 jinja2 = "*"
+mysql-connector-python = "*"
+sqlalchemy = "*"
 
 [requires]
 python_version = "3.8"
