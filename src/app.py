@@ -1,5 +1,6 @@
 import cherrypy
 import os
+from src import templates
 
 cherrypy.config.update(
     {
@@ -12,7 +13,14 @@ cherrypy.config.update(
 class GiftExchangeApp:
     @cherrypy.expose
     def index(self):
-        return "Hello world!"
+        users = [
+            {"id": 1, "name": "Pat"},
+            {"id": 2, "name": "Sam"},
+            {"id": 3, "name": "Alex"},
+            {"id": 4, "name": "Lee"},
+            {"id": 5, "name": "Taylor"},
+        ]
+        return templates.render("index.html", {"users": users})
 
     @cherrypy.expose
     def ping(self):
