@@ -3,8 +3,6 @@
 ## Development
 
 1. Install [pipenv](https://pipenv.pypa.io/en/latest/)
-1. Create a lock file that allows the black beta release: `pipenv lock --pre`
-1. Install dependencies: `pipenv install`
 1. Install dependencies: `pipenv install --dev`
 1. Install the pre-commit hooks: `pipenv run pre-commit install`
 1. Run tests: `bin/test.sh`
