@@ -1,9 +1,9 @@
 import cherrypy
 from cherrypy.test import helper
 
-from src.GiftExchangeApp import GiftExchangeApp
+from src.gift_exchange_app import GiftExchangeApp
 from src.db import Db
-from src.models.User import User
+from src.models.user import User
 from src.templates import render
 
 
@@ -13,7 +13,7 @@ class GiftExchangeAppTest(helper.CPWebCase):
         cherrypy.tree.mount(GiftExchangeApp())
 
     def test_index_is_hello_world(self):
-        expectedUsers = [
+        expected_users = [
             {"name": "Pat"},
             {"name": "Sam"},
             {"name": "Alex"},
@@ -22,14 +22,14 @@ class GiftExchangeAppTest(helper.CPWebCase):
         ]
 
         Db.session.query(User).delete()
-        for user in expectedUsers:
+        for user in expected_users:
             Db.session.add(User(name=user["name"]))
         Db.session.commit()
 
         self.getPage("/")
         self.assertStatus("200 OK")
-        expectedBody = render("index.html", {"users": expectedUsers})
-        self.assertBody(expectedBody)
+        expected_body = render("index.html", {"users": expected_users})
+        self.assertBody(expected_body)
 
     def test_ping_is_pong(self):
         self.getPage("/ping")

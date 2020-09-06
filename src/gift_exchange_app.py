@@ -1,7 +1,7 @@
 import cherrypy
 import os
 from src.db import Db
-from src.models.User import User
+from src.models.user import User
 from src.templates import render
 
 cherrypy.config.update(

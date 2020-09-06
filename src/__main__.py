@@ -1,4 +1,4 @@
 import cherrypy
-from src.GiftExchangeApp import GiftExchangeApp
+from src.gift_exchange_app import GiftExchangeApp
 
 cherrypy.quickstart(GiftExchangeApp())

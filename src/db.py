@@ -2,8 +2,7 @@ import sqlalchemy
 import src.models
 
 from os import environ
-from sqlalchemy.ext.declarative import declarative_base
-from src.models.BaseModel import BaseModel
+from src.models.base_model import BaseModel
 
 
 class Db:
@@ -37,6 +36,6 @@ class Db:
 
     @staticmethod
     def __init_session():
-        Session = sqlalchemy.orm.sessionmaker()
-        Session.configure(bind=Db.engine)
-        Db.session = Session()
+        session_class = sqlalchemy.orm.sessionmaker()
+        session_class.configure(bind=Db.engine)
+        Db.session = session_class()
