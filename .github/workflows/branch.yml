@@ -7,8 +7,26 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: password
+        ports:
+          - '8888:3306'
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
     steps:
-    - uses: actions/checkout@v2
+
+    - name: Clone repo
+      uses: actions/checkout@v2
+
+    - name: Start MySQL
+      run: sudo /etc/init.d/mysql start
+
+    - name: Create app database and user
+      run: |
+        mysql -h 127.0.0.1 --port 8888 -uroot -ppassword < db_setup_ci.sql
 
     - name: Setup Python
       uses: actions/setup-python@v2
@@ -22,4 +40,4 @@ jobs:
         pipenv install --dev
 
     - name: Run Tests
-      run: bin/test.sh
+      run: bin/ci.sh
